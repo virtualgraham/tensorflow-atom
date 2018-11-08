@@ -49,3 +49,6 @@ Here is the build command with `--config=mkl` set
 ```
 nohup bazel build --config=mkl --config=opt //tensorflow/tools/pip_package:build_pip_package &
 ```
+
+This wheel seems to perform better than the one I built here:
+https://github.com/yaroslavvb/tensorflow-community-wheels/issues/86
