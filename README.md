@@ -52,3 +52,33 @@ nohup bazel build --config=mkl --config=opt //tensorflow/tools/pip_package:build
 
 This wheel seems to perform better than the one I built here:
 https://github.com/yaroslavvb/tensorflow-community-wheels/issues/86
+
+## Results
+
+#### Google Compute with single Intel Broadwell vCPU:
+
+```
+60000/60000 [==============================] - 95s 2ms/step - loss: 0.1688 - acc: 0.9459
+Epoch 2/5
+60000/60000 [==============================] - 93s 2ms/step - loss: 0.0470 - acc: 0.9851
+Epoch 3/5
+60000/60000 [==============================] - 94s 2ms/step - loss: 0.0323 - acc: 0.9899
+Epoch 4/5
+60000/60000 [==============================] - 94s 2ms/step - loss: 0.0240 - acc: 0.9925
+Epoch 5/5
+60000/60000 [==============================] - 94s 2ms/step - loss: 0.0200 - acc: 0.9937
+10000/10000 [==============================] - 5s 467us/step
+0.9908
+```
+
+#### Google Compute with Tesla P4 GPU:
+
+```
+
+```
+
+#### Intel Atom x5-Z8300 CPU:
+
+```
+
+```
