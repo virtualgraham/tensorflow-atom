@@ -1,5 +1,5 @@
 # tensorflow-atom
-Testing what, if anything, can be accomplished with Tensorflow on an Intel Atom processor.
+Testing what, if anything, can be accomplished with Tensorflow on an Intel Atom processor. Specifically I am testing the Intel Atom x5-Z8300 CPU.
 
 The default builds of Tensorflow do not support the Atom CPU.
 
