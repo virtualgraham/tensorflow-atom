@@ -53,6 +53,15 @@ nohup bazel build --config=mkl --config=opt //tensorflow/tools/pip_package:build
 This wheel seems to perform better than the one I built here:
 https://github.com/yaroslavvb/tensorflow-community-wheels/issues/86
 
+#### Parallelism Threads
+The optimal performance was achived with these set to 1
+```
+config = tf.ConfigProto()
+config.intra_op_parallelism_threads = 1
+config.inter_op_parallelism_threads = 1
+tf.session(config=config)
+```
+
 ## Results
 
 #### Google Compute with single Intel Broadwell vCPU:
