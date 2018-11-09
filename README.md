@@ -7,7 +7,7 @@ It must be built from source. Here is a guide for that: https://www.tensorflow.o
 
 The Atom machine did not have enouph memory or power to build from source so I used another Intel machine with same OS (Ubuntu 18.04 64bit) and compiled without AVX but with MKL support.
 
-Here is how the build was configured using ./configure. The important part is where the eoptimization flags are set to `-march=silvermont` You can find the optimal march setting by running `gcc -march=native -Q --help=target` on the target machine.
+Here is how the build was configured using ./configure. The important part is where the optimization flags are set to `-march=silvermont` You can find the optimal march setting by running `gcc -march=native -Q --help=target` on the target machine.
 
 ```
 Please specify the location of python. [Default is /usr/bin/python]: 
@@ -41,7 +41,7 @@ Do you wish to download a fresh release of clang? (Experimental) [y/N]: n
 Clang will not be downloaded.
 Do you wish to build TensorFlow with MPI support? [y/N]: n
 No MPI support will be enabled for TensorFlow.
-Please specify optimization flags to use during compilation when bazel option "--config=opt" is specified [Default is -march=native]: -march=atom -mtune=atom
+Please specify optimization flags to use during compilation when bazel option "--config=opt" is specified [Default is -march=native]: -march=silvermont
 Would you like to interactively configure ./WORKSPACE for Android builds? [y/N]: n
 ```
 Here is the build command with `--config=mkl` set
