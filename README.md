@@ -50,7 +50,7 @@ Here is the build command with `--config=mkl` set
 nohup bazel build --config=mkl --config=opt //tensorflow/tools/pip_package:build_pip_package &
 ```
 
-This wheel seems to perform better than the one I built here:
+Here is another wheel that works on this platform:
 https://github.com/yaroslavvb/tensorflow-community-wheels/issues/86
 
 #### Parallelism Threads
@@ -67,6 +67,7 @@ tf.session(config=config)
 #### Google Compute with single Intel Broadwell vCPU:
 
 ```
+Epoch 1/5
 60000/60000 [==============================] - 95s 2ms/step - loss: 0.1688 - acc: 0.9459
 Epoch 2/5
 60000/60000 [==============================] - 93s 2ms/step - loss: 0.0470 - acc: 0.9851
@@ -77,12 +78,12 @@ Epoch 4/5
 Epoch 5/5
 60000/60000 [==============================] - 94s 2ms/step - loss: 0.0200 - acc: 0.9937
 10000/10000 [==============================] - 5s 467us/step
-0.9908
 ```
 
 #### Google Compute with NVIDIA Tesla P4 GPU:
 
 ```
+Epoch 1/5
 60000/60000 [==============================] - 11s 190us/step - loss: 0.1727 - acc: 0.9457
 Epoch 2/5
 60000/60000 [==============================] - 5s 82us/step - loss: 0.0485 - acc: 0.9848
@@ -93,12 +94,12 @@ Epoch 4/5
 Epoch 5/5
 60000/60000 [==============================] - 5s 82us/step - loss: 0.0207 - acc: 0.9937
 10000/10000 [==============================] - 1s 58us/step
-0.9915
 ```
 
-#### Intel Atom x5-Z8300 CPU:
+#### Intel Atom x5-Z8300 CPU using the Core2 wheel from yaroslavvb:
 
 ```
+Epoch 1/5
 60000/60000 [==============================] - 184s 3ms/step - loss: 0.1717 - acc: 0.9453
 Epoch 2/5
 60000/60000 [==============================] - 184s 3ms/step - loss: 0.0499 - acc: 0.9845
@@ -109,5 +110,20 @@ Epoch 4/5
 Epoch 5/5
 60000/60000 [==============================] - 184s 3ms/step - loss: 0.0214 - acc: 0.9934
 10000/10000 [==============================] - 11s 1ms/step
-0.9903
+```
+
+#### Intel Atom x5-Z8300 CPU using custom build with config=mkl, march=silvermont and parallelism_threads=1:
+
+```
+Epoch 1/5
+60000/60000 [==============================] - 138s 2ms/step - loss: 0.1784 - acc: 0.9438
+Epoch 2/5
+60000/60000 [==============================] - 133s 2ms/step - loss: 0.0471 - acc: 0.9854
+Epoch 3/5
+60000/60000 [==============================] - 133s 2ms/step - loss: 0.0326 - acc: 0.9898
+Epoch 4/5
+60000/60000 [==============================] - 133s 2ms/step - loss: 0.0250 - acc: 0.9920
+Epoch 5/5
+60000/60000 [==============================] - 132s 2ms/step - loss: 0.0201 - acc: 0.9938
+10000/10000 [==============================] - 10s 951us/step
 ```
