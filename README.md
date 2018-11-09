@@ -7,7 +7,7 @@ It must be built from source. Here is a guide for that: https://www.tensorflow.o
 
 The Atom machine did not have enouph memory or power to build from source so I used another Intel machine with same OS (Ubuntu 18.04 64bit) and compiled without AVX but with MKL support.
 
-Here is how the build was configured using ./configure. The important part is where the eoptimization flags are set to `-march=atom -mtune=atom` 
+Here is how the build was configured using ./configure. The important part is where the eoptimization flags are set to `-march=silvermont` You can find the optimal march setting by running `gcc -march=native -Q --help=target` on the target machine.
 
 ```
 Please specify the location of python. [Default is /usr/bin/python]: 
